@@ -12,13 +12,24 @@ class ArrayList:
     # You are not allowed to change any function declaration, e.g., name, parameters, and return value.
     ###########################################################
     def insertTail(self, value):
-        pass
+        if self.n == self.capa:
+            self.doubleArray()
 
+        self.array[self.n+1] = value
+
+        self.n = self.n+1
     def insert(self, idx, value):
-        pass
+        if self.n == self.capa:
+            self.doubleArray()
+
+        for i in range(idx, self.n):
+            self.array[i] = self.array[i+1]
+            self.array[idx] = value
+
+        self.n = self.n+1
 
     def get(self, idx):
-        pass
+        return self.array[idx]
     ###########################################################
     # Given implemented code below.
     ###########################################################
