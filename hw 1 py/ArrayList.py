@@ -23,8 +23,8 @@ class ArrayList:
         if self.n == self.capa:
             self.doubleArray()                  #if the capacity of the array is full, double the capacity
 
-        for i in range(self.n-1, idx, -1):      #move each value of the array, starting at the last index in the array, one index to the right
-            self.array[i+1] = self.array[i]     #until we reach the index which we wish to insert a value
+        for i in range(self.n, idx, -1):      #move each value of the array, starting at the last index in the array, one index to the right
+            self.array[i] = self.array[i-1]     #until we reach the index which we wish to insert a value
 
         self.array[idx] = value                 #put the value in the array at the index we wish to insert it
         self.n += 1                       #increment the value which we use to check if the capacity is met

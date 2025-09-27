@@ -20,13 +20,42 @@ class LinkedList():
 	# You are not allowed to change any function declaration, e.g., name, parameters, and return value.
 	###########################################################
 	def insertTail(self, value):
-		pass
+		if self.head is None:
+			new_node = self.Node(value)
+			self.head = new_node
+			self.head.next = None
+		else:
+			new_node = self.Node(value)
+			current = self.head
+			while current.next:
+				current = current.next
+			current.next = new_node
+			new_node.next = None
+		self.n += 1
 
 	def insert(self, idx, value):
-		pass
+		if self.head is None:
+			new_node = self.Node(value)
+			self.head = new_node
+			self.head.next = None
+		else:
+			new_node = self.Node(value)
+			current = self.head
+			temp = 0
+			while current is not None and temp < idx-1:
+				current = current.next
+				temp += 1
+			new_node.next = current.next
+			current.next = new_node
+		self.n += 1
 
 	def get(self, idx):
-		pass
+		current = self.head
+		temp = 0
+		while current is not None and temp < idx-1:
+			current = current.next
+			temp += 1
+		return current.next.data
 	###########################################################
 	# Given implemented code below.
 	###########################################################
